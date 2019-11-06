@@ -2,31 +2,27 @@ import React, { Component } from 'react'
 import QuizQuestionButton from './QuizQuestionButton.js'
 
 class QuizQuestion extends Component {
-
-  handleClick(buttonText){
-    if (buttonText === this.props.quiz_question.answer) {
+  handleClick(buttonText) {
+    if(buttonText === this.props.quiz_question.answer) {
       this.props.showNextQuestionHandler()
     }
   }
-
-  render(){
+  render() {
     return (
       <main>
         <section>
           <p>{this.props.quiz_question.instruction_text}</p>
         </section>
-        <section classname="buttons">
+        <section className="buttons">
           <ul>
             {this.props.quiz_question.answer_options.map((answer_option, index) => {
-              return <QuizQuestionButton key={index} button_text={answer_option}
-              clickHandler={this.handleClick.bind(this)}/>
+              return <QuizQuestionButton key={index} button_text={answer_option} clickHandler={this.handleClick.bind(this)} />
             })}
           </ul>
         </section>
-      </main>
+      </main>      
     )
   }
 }
-
 
 export default QuizQuestion
